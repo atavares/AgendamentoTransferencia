@@ -11,51 +11,59 @@ public class Transferencia {
 	private BigDecimal valorTransferencia;
 	private Double taxa;
 	private DateTime dataAgendamento;
+	private DateTime dataCadastro;
 	private TipoConta tipoConta;
 
-	
-
-
-	public void setContaOrigem(String contaOrigem) {
+	public Transferencia(String contaOrigem, String contaDestino, BigDecimal valorTransferencia, DateTime dataAgendamento, DateTime dataCadastro, TipoConta tipoConta) {
+		// TODO Auto-generated constructor stub
 		this.contaOrigem = contaOrigem;
-	}
-	
-
-	public void setContaDestino(String contaDestino) {
-		this.contaDestino = contaDestino;
-	}
-
-
-
-	public void setValorTransferencia(BigDecimal valorTransferencia) {
+		this.contaDestino= contaDestino;
 		this.valorTransferencia = valorTransferencia;
-		
-	}
-
-	public void setDataAgendamento(DateTime dataAgendamento) {
 		this.dataAgendamento = dataAgendamento;
+		this.dataCadastro = dataCadastro;
+		this.tipoConta = tipoConta;
 	}
 
-	public void setTipoConta(TipoConta tipoConta) {
-		this.tipoConta = tipoConta;
-		
-	}
-	
+
 	public TipoConta getTipoConta() {
 		return tipoConta;
 	}
+
 	
 
-	public Double getTaxa() {
-		return taxa;
+	public DateTime getDataAgendamento() {
+		return dataAgendamento;
 	}
+
+
+	public DateTime getDataCadastro() {
+		return dataCadastro;
+	}
+
 
 	public void setTaxa(Double taxa) {
 		this.taxa = taxa;
 	}
 
+
+
+	public Double getTaxa() {
+		return taxa;
+	}
+
+
 	public BigDecimal getValorTransferencia() {
 		return valorTransferencia;
+	}
+
+
+	public String getContaOrigem() {
+		return contaOrigem;
+	}
+
+
+	public String getContaDestino() {
+		return contaDestino;
 	}
 	
 	
