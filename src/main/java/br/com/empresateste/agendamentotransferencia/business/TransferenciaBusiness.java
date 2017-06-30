@@ -108,7 +108,27 @@ public class TransferenciaBusiness {
 		transferencia.setTaxa(Double.parseDouble(String.format(new Locale("en", "US"),"%.1f", valorTaxaCalculada.doubleValue())));
 	}
 	
-
+	/**
+	 *	D: Operações do tipo D tem a taxa igual a A, B ou C dependendo do valor da
+	 *	transferência.
+	 *	Valores até $25.000 seguem a taxação tipo A
+	 *	Valores de $25.001 até $120.000 seguem a taxação tipo B
+	 *	Valores maiores que $120.000 seguem a taxação tipo C
+	 **/
+	private void calculaTaxaTipoD(Transferencia transferencia){
+		// TODO Auto-generated method stub
+		if(transferencia.getValorTransferencia().compareTo(new BigDecimal("25000"))==-1){
+			calculaTaxaTipoA(transferencia);
+		}else{
+			if(transferencia.getValorTransferencia().compareTo(new BigDecimal("25000"))>0 && transferencia.getValorTransferencia().compareTo(new BigDecimal("120000"))==-1){
+				calculaTaxaTipoB(transferencia);
+			}else{
+				if(transferencia.getValorTransferencia().compareTo(new BigDecimal("120000"))>=1){
+					calculaTaxaTipoC(transferencia);
+				}
+			}
+		}
+	}
 	
 	public void calculaTaxaTransferencia(Transferencia transferencia) throws GenericException {
 		// TODO Auto-generated method stub
@@ -123,6 +143,10 @@ public class TransferenciaBusiness {
 			}else{
 				if(transferencia.getTipoConta().equals(TipoConta.C)){
 					calculaTaxaTipoC(transferencia);
+				}else{
+					if(transferencia.getTipoConta().equals(TipoConta.D)){
+						calculaTaxaTipoD(transferencia);
+					}
 				}
 			}
 		}

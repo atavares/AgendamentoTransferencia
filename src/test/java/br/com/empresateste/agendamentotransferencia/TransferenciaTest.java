@@ -86,7 +86,26 @@ public class TransferenciaTest {
 		}
 	}
 	
-
+	@Test
+	public void calculaTaxaTransferenciaFinanceiraTipoDTest(){
+		try{
+			Transferencia transferencia1 = new Transferencia("12785-9","67890-1",new BigDecimal("24000.0"), new DateTime(2017, 8, 1 , 0, 0), new DateTime(), TipoConta.D);
+			TransferenciaBusiness.getInstance().calculaTaxaTransferencia(transferencia1);
+			Assert.assertEquals(new Double("722.0"), transferencia1.getTaxa());
+			
+			Transferencia transferencia2 = new Transferencia("12995-9","67840-1",new BigDecimal("44000.0"), new DateTime(2017, 10, 1 , 0, 0), new DateTime(), TipoConta.D);
+			TransferenciaBusiness.getInstance().calculaTaxaTransferencia(transferencia2);
+			Assert.assertEquals(new Double("8"), transferencia2.getTaxa());
+			
+			Transferencia transferencia3 = new Transferencia("12985-9","67540-1",new BigDecimal("144000.0"), new DateTime(2017, 10, 1 , 0, 0), new DateTime(), TipoConta.D);
+			TransferenciaBusiness.getInstance().calculaTaxaTransferencia(transferencia3);
+			Assert.assertEquals(new Double("1728.0"), transferencia3.getTaxa());
+			
+			
+		}catch(GenericException ge){
+			Assert.fail(ge.getMessage());
+		}
+	}
 	
 	
 
