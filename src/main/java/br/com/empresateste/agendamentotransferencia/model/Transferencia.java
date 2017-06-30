@@ -1,6 +1,8 @@
 package br.com.empresateste.agendamentotransferencia.model;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 
 import org.joda.time.DateTime;
 
@@ -66,7 +68,10 @@ public class Transferencia {
 		return contaDestino;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "[conta origem:"+contaOrigem+" "+" conta destino:"+contaDestino+" data agendamento:"+ new SimpleDateFormat("dd/MM/yyyy").format(dataAgendamento.toDate())+" data cadastro:"+ new SimpleDateFormat("dd/MM/yyyy").format(dataCadastro.toDate())+" valor transferência:"+new DecimalFormat("###,###,##0.00").format(valorTransferencia)+" tipo conta:"+tipoConta+" taxa calculada:"+taxa+"]";
+	}
 	
 	
 }

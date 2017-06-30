@@ -11,7 +11,7 @@ import br.com.empresateste.agendamentotransferencia.exception.GenericException;
 import br.com.empresateste.agendamentotransferencia.model.TipoConta;
 import br.com.empresateste.agendamentotransferencia.model.Transferencia;
 
-public class TransferenciaTest {
+public class TransferenciaBusinessTest {
 
 	
 	@Test(expected=GenericException.class)
