@@ -1,4 +1,4 @@
-package br.com.teste.agendamentotarefa;
+package br.com.empresateste.agendamentotransferencia;
 
 /**
  * Hello world!

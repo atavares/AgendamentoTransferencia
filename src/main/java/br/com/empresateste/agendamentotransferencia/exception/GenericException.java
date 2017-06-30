@@ -1,4 +1,4 @@
-package br.com.teste.agendamentotarefa.exception;
+package br.com.empresateste.agendamentotransferencia.exception;
 
 public class GenericException extends Exception{
 		

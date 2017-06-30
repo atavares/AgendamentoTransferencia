@@ -1,10 +1,10 @@
-package br.com.teste.agendamentotarefa.model;
+package br.com.empresateste.agendamentotransferencia.model;
 
 import java.math.BigDecimal;
 
 import org.joda.time.DateTime;
 
-public class ContaTransferencia {
+public class Transferencia {
 
 	private String contaOrigem;
 	private String contaDestino;
@@ -12,7 +12,6 @@ public class ContaTransferencia {
 	private Double taxa;
 	private DateTime dataAgendamento;
 	private TipoConta tipoConta;
-	private String contaDestino2;
 
 	
 
@@ -20,6 +19,13 @@ public class ContaTransferencia {
 	public void setContaOrigem(String contaOrigem) {
 		this.contaOrigem = contaOrigem;
 	}
+	
+
+	public void setContaDestino(String contaDestino) {
+		this.contaDestino = contaDestino;
+	}
+
+
 
 	public void setValorTransferencia(BigDecimal valorTransferencia) {
 		this.valorTransferencia = valorTransferencia;
@@ -38,11 +44,6 @@ public class ContaTransferencia {
 	public TipoConta getTipoConta() {
 		return tipoConta;
 	}
-
-	public void setContaDestino(String contaDestino) {
-		this.contaDestino2 = contaDestino;
-	}
-
 	
 
 	public Double getTaxa() {

@@ -1,22 +1,22 @@
-package br.com.teste.agendamentotarefa.business;
+package br.com.empresateste.agendamentotransferencia.business;
 
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import br.com.teste.agendamentotarefa.exception.GenericException;
-import br.com.teste.agendamentotarefa.model.ContaTransferencia;
-import br.com.teste.agendamentotarefa.model.TipoConta;
+import br.com.empresateste.agendamentotransferencia.exception.GenericException;
+import br.com.empresateste.agendamentotransferencia.model.Transferencia;
+import br.com.empresateste.agendamentotransferencia.model.TipoConta;
 
-public class ContaTransferenciaBusiness {
+public class TransferenciaBusiness {
 	
-	private static ContaTransferenciaBusiness instance = null;
+	private static TransferenciaBusiness instance = null;
 	
-	private ContaTransferenciaBusiness(){}
+	private TransferenciaBusiness(){}
 	
-	public static ContaTransferenciaBusiness getInstance(){
+	public static TransferenciaBusiness getInstance(){
 		if(instance==null){
-			instance = new ContaTransferenciaBusiness();
+			instance = new TransferenciaBusiness();
 		}
 		return instance;
 	}
@@ -37,9 +37,9 @@ public class ContaTransferenciaBusiness {
 	 * A: Operações do tipo A tem uma taxa de $2 mais 3% do valor da transferência
 	 * 
 	 **/
-	private void calculaTaxaTipoA(ContaTransferencia conta){
-		BigDecimal valorTaxaCalculada  = conta.getValorTransferencia().multiply(new BigDecimal("3")).divide(new BigDecimal("100")).add(new BigDecimal("2"));
-		conta.setTaxa(valorTaxaCalculada.doubleValue());
+	private void calculaTaxaTipoA(Transferencia transferencia){
+		BigDecimal valorTaxaCalculada  = transferencia.getValorTransferencia().multiply(new BigDecimal("3")).divide(new BigDecimal("100")).add(new BigDecimal("2"));
+		transferencia.setTaxa(valorTaxaCalculada.doubleValue());
 	}
 	
 //	/**
@@ -52,11 +52,10 @@ public class ContaTransferenciaBusiness {
 //		conta.setTaxa(valorTaxaCalculada);
 //	}
 	
-	public void calculaTaxaTransferencia(ContaTransferencia conta) {
+	public void calculaTaxaTransferencia(Transferencia transferencia) {
 		// TODO Auto-generated method stub
-		if(conta.getTipoConta().equals(TipoConta.A)){
-			calculaTaxaTipoA(conta);
-			return;
+		if(transferencia.getTipoConta().equals(TipoConta.A)){
+			calculaTaxaTipoA(transferencia);
 		}
 		
 	}
